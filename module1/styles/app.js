@@ -5,28 +5,14 @@
   LunchCheckController.$inject = ['$scope'];
   function LunchCheckController($scope) {
    $scope.items = "";
-   var good_variant = $scope.items.split([/(\d+)?[.,]?(\d+)\./['']]);
-   var bad_variant = $scope.items.split([/(\d+)?[.,]?(\d+)\./['', 4]]);
    $scope.clickButton = function() {
-    if ($scope.items.split([/(\d+)?[.,]?(\d+)\./['']]).length == ""){
-      $scope.text = "empty";
-    }else if ($scope.items.split("").length == good_variant.length){
-      $scope.text = "good";
-    }else if($scope.items.split("") == bad_variant){
-      $scope.text = "bad";
+    if ($scope.items.split("").length == "0"){
+      $scope.text = "Please enter data first.";
+    }else if ($scope.items.split(" ").length >= 4 ){
+      $scope.text = "Too much!";
+    }else if($scope.items.split(" ").length <= 3 ) {
+      $scope.text = "Enjoy!";
     }
-    
-    
-   }
-   
-   
-   
-   
-  
-   
-  };
-  
-
-
-
+   };
+  }
 })();
