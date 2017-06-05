@@ -14,7 +14,6 @@
     list.empty = false;
 
     list.searchMenuItems = function() {
-      alert("Clicked");
       var promise = MenuSearchService.getMatchedMenuItems(list.searchTerm);
       promise.then(function(response) {
           list.found = response;
@@ -59,7 +58,7 @@
     service.getMatchedMenuItems = function(searchTerm) {
       return $http({
           method: "GET",
-          url: (ApiBasePath + "/menu_items.json")
+          url: ("https://davids-restaurant.herokuapp.com/menu_items.json")
         })
         .then(function(response) {
           foundItems = searchTearmOnArray(
