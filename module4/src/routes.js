@@ -9,17 +9,18 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
 
  
   $urlRouterProvider.otherwise('/');
+  console.log($urlRouterProvider.otherwise('/'));
 
   $stateProvider
 
   .state('home', {
     url: '/',
-    templateUrl: 'src/home/home.template.html'
+    templateUrl: 'src/home.template.html'
   })
 
   .state('categories', {
     url: '/categories',
-    templateUrl: 'src/data/categories/categories.template.html',
+    templateUrl: 'src/categories.template.html',
     controller: 'CategoryListController as categoryList',
     resolve: {
       items: ['MenuDataService', function (MenuDataService) {
@@ -30,7 +31,7 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
 
   .state('items', {
     url: '/categories/{categoryId}',
-    templateUrl: 'src/data/items/items.template.html',
+    templateUrl: 'src/items.template.html',
     controller: 'ItemListController as itemList',
     resolve: {
       items: ['$stateParams', 'MenuDataService',
